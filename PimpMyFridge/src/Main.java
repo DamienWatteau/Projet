@@ -7,7 +7,6 @@ public class Main {
 		GraphicInterface classGui = new GraphicInterface();
 		classGui.Gui();
 
-		
 	}
 
 }

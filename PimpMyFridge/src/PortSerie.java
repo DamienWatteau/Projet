@@ -8,7 +8,6 @@ public class PortSerie {
 	
 	public String numeroPort() {
 		
-			//System.out.println("Program Started!!! ");
 			String tableauCOM[] = new String[6];
 
 			CommPortIdentifier serialPortId;
@@ -35,8 +34,7 @@ public class PortSerie {
 			else {
 				return tableauCOM[0];
 			}
-			//System.out.println(nom);
-			//System.out.println("Program Finished Sucessfully");
+
 		}
 		
 	public String choisirPort(String[] tableauCOM) {

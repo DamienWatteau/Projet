@@ -103,7 +103,7 @@ public class GraphicInterface {
 		frame.setSize(960, 600);
 		frame.setLocationRelativeTo(null);
 		// Termine le processus lorsqu'on clique sur la croix rouge
-		// frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 
