@@ -14,8 +14,6 @@ public class PortSerie {
 			CommPortIdentifier serialPortId;
 
 			Enumeration enumComm;
-			JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
-			
 
 			enumComm = CommPortIdentifier.getPortIdentifiers();
 			int i=0;
@@ -31,19 +29,27 @@ public class PortSerie {
 				}
 			}
 			
-			String nom = "";
-			if(tableauCOM[1] != null){
-
-				nom = (String)jop.showInputDialog(null, 
-		      "Veuillez choisir le port série de l'arduino!",
-		      "ARDUINO !",
-		      JOptionPane.QUESTION_MESSAGE,
-		      null,
-		      tableauCOM,
-		      tableauCOM[2]);
-				
-			}
-			System.out.println(nom);
+			
+			//System.out.println(nom);
 			//System.out.println("Program Finished Sucessfully");
 		}
+		
+	public String choisirPort(String[] tableauCOM) {
+		
+		JOptionPane jop = new JOptionPane();
+		String nom = "";
+		if(tableauCOM[1] != null){
+
+			nom = (String)jop.showInputDialog(null, 
+	      "Veuillez choisir le port série de l'arduino!",
+	      "ARDUINO !",
+	      JOptionPane.QUESTION_MESSAGE,
+	      null,
+	      tableauCOM,
+	      tableauCOM[2]);
+			
+		}
+		return nom;
+		
+	}
 }

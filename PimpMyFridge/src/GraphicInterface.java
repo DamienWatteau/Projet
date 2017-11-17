@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -7,14 +6,13 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class InterfaceArduino {
+public class GraphicInterface {
 
 	public JButton buttonMore;
 	public JButton buttonLess;
@@ -27,8 +25,8 @@ public class InterfaceArduino {
 	public static int nombreTemperature = 20;
 
 	public static JPanel setBackgroundImage(JFrame frame, final File img) throws IOException {
-		JPanel panel = new JPanel() {
 
+		JPanel panel = new JPanel() {
 			private BufferedImage buf = ImageIO.read(img);
 
 			@Override
@@ -46,7 +44,7 @@ public class InterfaceArduino {
 	void Gui() throws IOException {
 		JFrame frame = new JFrame();
 
-		JPanel panel = setBackgroundImage(frame, new File("C:\\Users\\Coste\\Desktop\\Pimp my fridge\\oui.png"));
+		JPanel panel = setBackgroundImage(frame, new File("C:\\Users\\Damien\\Desktop\\oui.png"));
 
 		// Bouton pour augmenter la valeur consigne
 		buttonMore = new JButton("+");
@@ -58,7 +56,6 @@ public class InterfaceArduino {
 		});
 		panel.add(buttonMore);
 		panel.setLayout(null);
-		
 
 		// Bouton pour diminuer la valeur consigne
 		buttonLess = new JButton("-");
@@ -69,20 +66,25 @@ public class InterfaceArduino {
 			}
 		});
 		panel.add(buttonLess);
-		
+
 		// Bouton pour quitter l'application
 		buttonQuit = new JButton("X");
-		ImageIcon image = new ImageIcon("C:\\Users\\Coste\\Pictures\\PMF\\close_app.png");
+		//ImageIcon image = new ImageIcon("C:\\Users\\Damien\\Desktop\\close_app.png");
+		ImageIcon image = new ImageIcon("/Images/close_app_pressed.png");
+		
 		buttonQuit.setIcon(image);
-		//buttonQuit.setOpaque(true);
+		// buttonQuit.setOpaque(true);
 		buttonQuit.setContentAreaFilled(false);
 		buttonQuit.setBorderPainted(false);
-		//buttonQuit.setFocusPainted(false);
-		buttonQuit.setBounds(916, 0, 44, 44);
+		// buttonQuit.setFocusPainted(false);
+		buttonQuit.setBounds(916, 0, 54, 44);
 		buttonQuit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				System.exit(0);
+				ImageIcon II = new ImageIcon(getClass().getResource("/Images/close_app_pressed.png"));
+                buttonQuit.setIcon(II);
+				
 			}
+			
 		});
 		panel.add(buttonQuit);
 
@@ -104,11 +106,11 @@ public class InterfaceArduino {
 		consigne.setForeground(Color.blue);
 
 		// Label : Température
-//		temperature = new JLabel(nombreTemperature + "°");
-//		panel.add(temperature);
-//		temperature.setFont(new Font("Calibri", Font.BOLD, 70));
-//		temperature.setBounds(50, 30, 200, 200);
-//		temperature.setForeground(Color.white);
+		// temperature = new JLabel(nombreTemperature + "°");
+		// panel.add(temperature);
+		// temperature.setFont(new Font("Calibri", Font.BOLD, 70));
+		// temperature.setBounds(50, 30, 200, 200);
+		// temperature.setForeground(Color.white);
 
 		// Label : PimpMyFridge
 		PimpMyFridge = new JLabel("Pimp My Fridge");
@@ -117,7 +119,6 @@ public class InterfaceArduino {
 		PimpMyFridge.setForeground(Color.blue);
 		panel.add(PimpMyFridge);
 
-		
 		frame.setUndecorated(true);
 		frame.pack();
 		frame.setVisible(true);
@@ -125,7 +126,7 @@ public class InterfaceArduino {
 		frame.setSize(960, 600);
 		frame.setLocationRelativeTo(null);
 		// Termine le processus lorsqu'on clique sur la croix rouge
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 
@@ -144,23 +145,22 @@ public class InterfaceArduino {
 			CalibrageConsigne();
 		}
 	}
-	
+
 	// Lance le
 	private void buttonValiderActionPerformed(java.awt.event.ActionEvent evt) {
 		System.out.println(nombreConsigne);
 		// Mettre code de l'arduino
 	}
-	
-	private static void CalibrageConsigne(){
-		
+
+	private static void CalibrageConsigne() {
+
 		if (nombreConsigne >= 10) {
-			consigne.setBounds(130,170,40,40);
-		}
-		else if (nombreConsigne >=0 && nombreConsigne <= 10) {
+			consigne.setBounds(130, 170, 40, 40);
+		} else if (nombreConsigne >= 0 && nombreConsigne <= 10) {
 			consigne.setBounds(140, 170, 40, 40);
-		}
-		else if (nombreConsigne < 0) {
+		} else if (nombreConsigne < 0) {
 			consigne.setBounds(135, 170, 40, 40);
 		}
 	}
+
 }
