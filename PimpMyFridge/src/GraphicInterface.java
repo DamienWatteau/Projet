@@ -43,7 +43,7 @@ public class GraphicInterface {
 	void Gui() throws IOException {
 		JFrame frame = new JFrame();
 
-		JPanel panel = setBackgroundImage(frame, new File("C:\\Users\\Damien\\Desktop\\oui.png"));
+		JPanel panel = setBackgroundImage(frame, new File("images/bg.png"));
 
 		// Bouton pour augmenter la valeur consigne
 		buttonMore = new JButton("+");
@@ -102,6 +102,8 @@ public class GraphicInterface {
 		frame.setResizable(false);
 		frame.setSize(960, 600);
 		frame.setLocationRelativeTo(null);
+		//Définit un titre pour notre fenêtre
+	    frame.setTitle("Pimp My Fridge - Project");
 		// Termine le processus lorsqu'on clique sur la croix rouge
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
