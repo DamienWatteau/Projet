@@ -18,7 +18,6 @@ public class GraphicInterface {
 	public JButton buttonLess;
 	public JButton buttonValider;
 	public JLabel PimpMyFridge;
-	public JButton buttonQuit;
 	public static JLabel consigne;
 	public JLabel temperature;
 	public static int nombreConsigne = 0;
@@ -67,27 +66,6 @@ public class GraphicInterface {
 		});
 		panel.add(buttonLess);
 
-		// Bouton pour quitter l'application
-		buttonQuit = new JButton("X");
-		//ImageIcon image = new ImageIcon("C:\\Users\\Damien\\Desktop\\close_app.png");
-		ImageIcon image = new ImageIcon("/Images/close_app_pressed.png");
-		
-		buttonQuit.setIcon(image);
-		// buttonQuit.setOpaque(true);
-		buttonQuit.setContentAreaFilled(false);
-		buttonQuit.setBorderPainted(false);
-		// buttonQuit.setFocusPainted(false);
-		buttonQuit.setBounds(916, 0, 54, 44);
-		buttonQuit.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				ImageIcon II = new ImageIcon(getClass().getResource("/Images/close_app_pressed.png"));
-                buttonQuit.setIcon(II);
-				
-			}
-			
-		});
-		panel.add(buttonQuit);
-
 		// Bouton pour valider la valeur consigne
 		buttonValider = new JButton("Valider");
 		buttonValider.setBounds(280, 170, 100, 40);
@@ -119,7 +97,6 @@ public class GraphicInterface {
 		PimpMyFridge.setForeground(Color.blue);
 		panel.add(PimpMyFridge);
 
-		frame.setUndecorated(true);
 		frame.pack();
 		frame.setVisible(true);
 		frame.setResizable(false);

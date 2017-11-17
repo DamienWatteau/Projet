@@ -6,7 +6,7 @@ import gnu.io.CommPortIdentifier;
 
 public class PortSerie {
 	
-	public void numeroPort() {
+	public String numeroPort() {
 		
 			//System.out.println("Program Started!!! ");
 			String tableauCOM[] = new String[6];
@@ -29,7 +29,12 @@ public class PortSerie {
 				}
 			}
 			
-			
+			if(tableauCOM[1] != null){
+				return choisirPort(tableauCOM);
+			}
+			else {
+				return tableauCOM[0];
+			}
 			//System.out.println(nom);
 			//System.out.println("Program Finished Sucessfully");
 		}
@@ -47,9 +52,8 @@ public class PortSerie {
 	      null,
 	      tableauCOM,
 	      tableauCOM[2]);
-			
+		
 		}
 		return nom;
-		
 	}
-}
+}	
